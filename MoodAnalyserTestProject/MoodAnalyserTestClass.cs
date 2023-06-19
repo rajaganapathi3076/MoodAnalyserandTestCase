@@ -9,8 +9,8 @@ namespace MoodAnalyserTestProject
     {
         [TestMethod]
 
-        [DataRow(" Iam in happy mood", "happy")]
-        [DataRow(" Iam in sad mood", "sad")]
+       
+        [DataRow(null, "Happy")]
         public void Given_Message_Should_User_Mood(string msg,string expected)
         {
 

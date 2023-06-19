@@ -26,24 +26,33 @@ namespace MoodAnalyser
 
         public string Analyser() 
         {
-            if (message.ToLower().Contains("happy")) 
+            try 
             {
-                Console.WriteLine("happy");
-                return "happy";
-                
 
-            }
-            else if (message.ToLower().Contains("sad"))
-            {
-                Console.WriteLine("sad");
-                return "sad";
+                if (message.ToLower().Contains("happy"))
+                {
+                    Console.WriteLine("happy");
+                    return "happy";
 
+
+                }
+                else if (message.ToLower().Contains("sad"))
+                {
+                    Console.WriteLine("sad");
+                    return "sad";
+
+                }
+                else
+                {
+                    Console.WriteLine("unknown Mood cannot find");
+                    return message;
+                }
             }
-            else
+            catch(NullReferenceException ex)
             {
-                Console.WriteLine("unknown Mood cannot find");
-                return message;
+                return "Happy";
             }
+           
             
            
         }
