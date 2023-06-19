@@ -15,9 +15,13 @@ namespace ModeAnalyser
             try
             {
 
-                Console.WriteLine("Welcome to MoodAnalyser problem UC1");
-                MoodAnalyser1 moodAnalyser1 = new MoodAnalyser1(" ");
+                Console.WriteLine("Welcome to MoodAnalyser problem UC2");
+                MoodAnalyser1 moodAnalyser1 = new MoodAnalyser1("Iam in happy mood ");
                 moodAnalyser1.Analyser();
+
+              
+
+
             }
             catch (Exception ex)
             {

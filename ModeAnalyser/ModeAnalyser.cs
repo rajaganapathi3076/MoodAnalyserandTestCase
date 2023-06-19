@@ -11,11 +11,19 @@ namespace MoodAnalyser
     public class MoodAnalyser1
     {
         public string message;
+
+        public MoodAnalyser1()
+        {
+            message = "happy ";
+        }
+        
+
         public MoodAnalyser1(string msg)
         {
             message = msg;
 
         }
+
         public string Analyser() 
         {
             if (message.ToLower().Contains("happy")) 
@@ -25,11 +33,19 @@ namespace MoodAnalyser
                 
 
             }
-            else
+            else if (message.ToLower().Contains("sad"))
             {
                 Console.WriteLine("sad");
                 return "sad";
+
             }
+            else
+            {
+                Console.WriteLine("unknown Mood cannot find");
+                return message;
+            }
+            
+           
         }
        
     }
