@@ -10,6 +10,10 @@ namespace MoodAnalyser
 {
     public class MoodAnalyser1
     {
+        public enum weekdays
+        {
+            Monday,tuesday,wednesday,thursday,friday,saturday
+        }
         public string message;
 
         public MoodAnalyser1()
