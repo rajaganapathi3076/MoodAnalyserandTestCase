@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModeAnalyser;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -10,10 +11,7 @@ namespace MoodAnalyser
 {
     public class MoodAnalyser1
     {
-        public enum weekdays
-        {
-            Monday,tuesday,wednesday,thursday,friday,saturday
-        }
+       
         public string message;
 
         public MoodAnalyser1()
@@ -40,21 +38,22 @@ namespace MoodAnalyser
 
 
                 }
-                else if (message.ToLower().Contains("sad"))
+                else if (message.Equals(string.Empty)) 
                 {
-                    Console.WriteLine("sad");
-                    return "sad";
+                    throw new InvalidMoodException(InvalidMoodException.ExceptionTypes.EMPTY, "Message having empty");
+                   
 
                 }
                 else
                 {
-                    Console.WriteLine("unknown Mood cannot find");
-                    return message;
+                    return "sad";
+
                 }
+               
             }
             catch(NullReferenceException ex)
             {
-                return "Happy";
+                throw new InvalidMoodException(InvalidMoodException.ExceptionTypes.NULL, "Message having null");
             }
            
             

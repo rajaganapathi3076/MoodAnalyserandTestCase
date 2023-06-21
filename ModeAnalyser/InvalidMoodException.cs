@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ModeAnalyser
 {
-    internal class InvalidMoodException:Exception
+    public class InvalidMoodException:Exception
     {
-        ExceptionTypes exceptionTypes;
+       public ExceptionTypes exceptionTypes;
         public enum ExceptionTypes
         {
             NULL,

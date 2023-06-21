@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.JScript;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ModeAnalyser;
 using MoodAnalyser;
 using System;
 
@@ -29,20 +31,55 @@ namespace MoodAnalyserTestProject
 
         }
         [TestMethod]
-        [DataRow(null, "Happy")]
-        public void Given_Message_Should_User_Null(string msg, string expected)
+        [DataRow(null, "Message having null")]
+        public void Given_Message_Should_User_Exception(string msg, string expected)
         {
 
             //AAA Method
             ///Arrange
             MoodAnalyser1 moodanalyser = new MoodAnalyser1(msg);
+            try 
+            {
+                //Act
+                string actual = moodanalyser.Analyser();
 
-            //Act
-            string actual = moodanalyser.Analyser();
 
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
+            catch (InvalidMoodException ex)
+            {
+                Assert.AreEqual(expected, ex.Message);
+                Assert.AreEqual("NULL", ex.exceptionTypes.ToString());
+                Console.WriteLine(ex.Message);
+            }
+           
 
         }
-}   }
+        [TestMethod]
+        [DataRow(" ", "Message having empty")]
+        public void Given_Message_Should_User_Exceptions(string msg, string expected)
+        {
+
+            //AAA Method
+            ///Arrange
+            MoodAnalyser1 moodanalyser = new MoodAnalyser1(msg);
+            try
+            {
+                //Act
+                string actual = moodanalyser.Analyser();
+
+
+                //Assert
+                //Assert.AreEqual(expected, actual);
+            }
+            catch (InvalidMoodException ex)
+            {
+                Assert.AreEqual(expected, ex.Message);
+                Assert.AreEqual("EMPTY", ex.exceptionTypes.ToString());
+                Console.WriteLine(ex.Message);
+            }
+
+
+        }
+    }   }
